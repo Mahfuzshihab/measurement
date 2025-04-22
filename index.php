@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement Connverter</title>
+    <title>Measurement Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,24 +12,23 @@
     <div class="converter">
         <h2>Measurement Converter</h2>
         <form method="post">
-            <label for="value">Enter Value:</label>
-            <input type="number" step="any" name="value" required>
-
-            <label for="type">Choose Conversion:</label>
+            
+            <input type="number" step="any" name="value" placeholder="Enter Value" required>
             <select name="type">
+                <option value="choose">Choose Conversion:</option>
                 <optgroup label="Temperature">
-                    <option value="c_to_f">Celsius → Fahrenheit</option>
-                    <option value="c_to_k">Celsius → Kelvin</option>
+                    <option value="CtoF">Celsius → Fahrenheit</option>
+                    <option value="CtoK">Celsius → Kelvin</option>
                 </optgroup>
 
                 <optgroup label="Speed">
-                    <option value="kmh_to_ms">km/h → m/s</option>
-                    <option value="kmh_to_knots">km/h → knots</option>
+                    <option value="KMHtoMS">km/h → m/s</option>
+                    <option value="KMHtoKNOTS">km/h → knots</option>
                 </optgroup>
 
                 <optgroup label="Mass">
-                    <option value="kg_to_g">kg → grams</option>
-                    <option value="g_to_kg">grams → kg</option>
+                    <option value="KGtoGram">kg → grams</option>
+                    <option value="GramtoKg">grams → kg</option>
                 </optgroup>
             </select>
 
@@ -43,22 +42,22 @@
             $result = "";
 
             switch ($type) {
-                case "c_to_f":
+                case "CtoF":
                     $result = ($value * 9/5) + 32 . " °F";
                     break;
-                case "c_to_k":
+                case "CtoK":
                     $result = $value + 273.15 . " K";
                     break;
-                case "kmh_to_ms":
+                case "KMHtoMS":
                     $result = $value * (1000/3600) . " m/s";
                     break;
-                case "kmh_to_knots":
+                case "KMHtoKNOTS":
                     $result = $value * 0.539957 . " knots";
                     break;
-                case "kg_to_g":
+                case "KGtoGram":
                     $result = $value * 1000 . " g";
                     break;
-                case "g_to_kg":
+                case "GramtoKg":
                     $result = $value / 1000 . " kg";
                     break;
             }
